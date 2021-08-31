@@ -297,6 +297,25 @@
       vaildQuery() {
         return this.$refs.queryBuilderGroup.valid()
       },
+      // 这两个方法是暴露出去的方法，用以在组件外部通过$refs['xxxx'].getRuleParams()或者resetRuleParams()来校验并获取规则或者重置规则
+      getRuleParams() {
+        let param = {}
+        // 先校验条件
+        const bringValid = this.vaildQuery()
+        if (bringValid) {
+          this.$message({
+            type: 'error',
+            message: '请检查条件'
+          })
+          return false
+        }
+        param = this.getQuery()
+        return param
+      },
+      // 重置条件
+      resetRuleParams() {
+        this.resetQuery()
+      },
     }
   }
 
