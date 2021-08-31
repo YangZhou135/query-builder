@@ -17,7 +17,6 @@
   import QueryBuilderGroup from './QueryBuilderGroup.vue'
   import SearchItemSelect from './SearchItemSelect.vue'
   import deepClone from './utils.js'
-  import queryToTextDesc from './utils.js'
 
   const defaultRuleType = {}
   const defaultQuery = {
@@ -289,23 +288,6 @@
         // 判断条件是否未空
         return this.query
       },
-      // 获取条件描述
-      getQueryDesc() {
-        const curQuery = this.query
-
-        return queryToTextDesc(curQuery, true)
-      },
-      // 转换中文描述
-      getQueryHtml() {
-        const curQuery = this.query
-        return queryToTextDesc(curQuery, false)
-      },
-      toQueryHtml(query) {
-        return queryToTextDesc(query, false)
-      },
-      setQuery(query) {
-        this.query = query || JSON.parse(JSON.stringify(defaultQuery))
-      },
       // 重置
       resetQuery() {
         this.init()
@@ -315,10 +297,6 @@
       vaildQuery() {
         return this.$refs.queryBuilderGroup.valid()
       },
-      // 清空条件
-      clearQuery() {
-        this.query = defaultQuery
-      }
     }
   }
 
