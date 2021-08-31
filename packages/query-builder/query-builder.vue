@@ -356,27 +356,6 @@
     border: 0px solid #ddd;
   }
 
-  .query-builder .rules-group-header {
-    margin-bottom: 10px;
-  }
-
-  .query-builder .rules-group-header .group-conditions .btn.readonly:not(.active),
-  .query-builder .rules-group-header .group-conditions input[name$="_cond"] {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    white-space: nowrap;
-  }
-
-  .query-builder .rules-group-header .group-conditions .btn.readonly {
-    border-radius: 3px;
-  }
-
   .query-builder .rules-list {
     list-style: none;
     padding: 0 0 0 40px;
@@ -485,10 +464,6 @@
     font-size: 0.8em;
   }
 
-  .query-builder .rules-group-header [data-invert] {
-    margin-left: 5px;
-  }
-
   .query-builder .drag-handle {
     cursor: move;
     vertical-align: middle;
@@ -519,10 +494,6 @@
     display: inline-block;
     margin: 0;
     vertical-align: middle;
-  }
-
-  .rules-group-header>.pull-right {
-    float: right !important;
   }
 
   .has-error {

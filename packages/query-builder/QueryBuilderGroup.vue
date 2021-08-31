@@ -1,30 +1,5 @@
 <template>
   <div class="rules-group-container">
-    <div v-show="false" class="rules-group-header">
-      <div class="btn-group  group-actions ">
-        <el-button-group>
-          <el-button :disabled="queryBuilderObj.disabled" size="mini" type="primary" icon="el-icon-circle-plus-outline"
-            @click="addRule">
-            条件
-          </el-button>
-          <el-button v-if="depth < maxDepth" :disabled="queryBuilderObj.disabled" size="mini" type="primary"
-            icon="el-icon-circle-plus-outline" @click="addGroup">
-            分组
-          </el-button>
-          <el-button v-if="depth > 1" :disabled="queryBuilderObj.disabled" size="mini" type="danger"
-            icon="el-icon-close" @click="removeGroup">
-            删除
-          </el-button>
-        </el-button-group>
-      </div>
-      <div class="btn-group group-conditions">
-        <el-radio-group v-model="curLogical" :disabled="queryBuilderObj.disabled" size="mini">
-          <el-radio-button label="AND" :disabled="!hasMultipleRule">并且</el-radio-button>
-          <el-radio-button label="OR" :disabled="!hasMultipleRule">或者</el-radio-button>
-        </el-radio-group>
-      </div>
-
-    </div>
     <div class="rules-group-body">
       <rules-group-logical :show-logical="showLogical" :logical-operator="curLogical"
         :logical-style-object="logicalStyleObject" @change-logical="toggleLogical" />
