@@ -34,7 +34,7 @@
   import QueryBuilderRule from './QueryBuilderRule.vue'
   import RulesGroupLogical from './RulesGroupLogical.vue'
   import deepClone from './utils.js'
-  import EmptyBox from './empty-box/empty-box.vue'
+  import EmptyBox from './empty-box.vue'
 
   const defaultQuery = {
     logical: 'AND',

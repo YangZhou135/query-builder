@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import emptyBox from './empty-box/empty-box.vue'
+import emptyBox from './empty-box.vue'
   export default {
     name: 'ScrollMenu',
   components: { emptyBox },
