@@ -2,7 +2,7 @@
   <div class="empty-box">
     <div class="empty empty-normal">
       <div class="empty-image" style="line-height: initial;">
-        <img v-if="withImg" :style="{'width':imgWidth}" :alt="desc" src="./empty.png">
+        <img v-if="withImg" :style="{'width':imgWidth}" :alt="desc" :src="require('./empty.png')">
         <p class="empty-description">{{ desc }}</p>
       </div>
 

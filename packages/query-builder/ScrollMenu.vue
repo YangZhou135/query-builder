@@ -27,7 +27,6 @@
     </template>
     <template v-else>
       <empty-box />
-      <!-- <empty-box></empty-box> -->
     </template>
 
   </div>
