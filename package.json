@@ -1,13 +1,17 @@
 {
   "name": "query-builder",
   "description": "A Vue.js project",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "YangZhou135 <350394781@qq.com>",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  "main": "dist/query-builder.js",
+  "files":[
+    "dist"
+  ],
   "dependencies": {
     "element-ui": "^2.15.5",
     "vue": "^2.5.11"
