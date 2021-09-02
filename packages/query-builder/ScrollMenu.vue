@@ -15,7 +15,12 @@
           <!-- 添加锚点 -->
           <p :id="type + item.cateId" class="search-parent-title acontent">{{ item.cateName }}</p>
           <div v-for="(sub, subIndex) in item.child" :key="subIndex" class="search-sub-cate">
-            <p class="search-sub-title">{{ sub.childName }}</p>
+            <checkbox-all v-if="!singleSelect" v-slot="scope" :selected="selectItems" :all="sub.item">
+              <p class="search-sub-title">
+                <el-checkbox :value="scope.checked" :indeterminate="scope.indeterminate" @change="(val)=>checkAll(val,selectItems,sub.item)">{{ sub.childName }}</el-checkbox>
+              </p>
+            </checkbox-all>
+            <p v-else class="search-sub-title">{{ sub.childName }}</p>
             <div v-for="(sitem, sindex) in sub.item" :key="sindex" class="search-item-content">
               <span class="search-item-tag" :class="{ active:selectItems.indexOf(sitem) > -1 }"
                     @click="clickItem(sitem,sub)"
@@ -34,9 +39,10 @@
 
 <script>
 import emptyBox from './empty-box.vue'
+import CheckboxAll from './CheckboxAll'
   export default {
     name: 'ScrollMenu',
-  components: { emptyBox },
+    components: { emptyBox, CheckboxAll },
     props: {
       // 类型 全病字段还是专病字段
       type: {
@@ -188,6 +194,23 @@ import emptyBox from './empty-box.vue'
         }
         // 把下标赋值给 vue 的 data
         this.selectId = navIndex
+      },
+      checkAll(value, selected, all) {
+        if (value) {
+          // 全选
+          all.forEach(a_item => {
+            if (selected.indexOf(a_item) < 0) {
+              selected.push(a_item)
+            }
+          })
+        } else {
+          // 取消全选
+           all.forEach(a_item => {
+            if (selected.indexOf(a_item) >= 0) {
+              selected.splice(selected.indexOf(a_item), 1)
+            }
+          })
+        }
       }
     }
   }
@@ -225,7 +248,7 @@ import emptyBox from './empty-box.vue'
   }
 
   .search-parent-cate:last-child {
-    margin-bottom: 300px;
+    margin-bottom: 400px;
   }
 
   .search-parent-title {

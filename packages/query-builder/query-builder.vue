@@ -7,7 +7,7 @@
     />
 
     <search-item-select ref="searchItemDialog" :cate-items="searchItemData.cateItems" :loading="loading"
-                        :field-data="searchItemData.fieldData" @close-search-dialog="fillInput"
+                        :field-data="searchItemData.fieldData" :single-select="singleSelect" @close-search-dialog="fillInput"
     />
 
   </div>
@@ -135,6 +135,13 @@
       actived: {
         type: Boolean,
         default: true
+      },
+      // 是否单选，默认是
+      singleSelect: {
+        type: Boolean,
+        default() {
+          return true
+        }
       }
     },
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <query-builder ref="BringQueryBuilder" :rules="rules" :allow-del-first="true" :search-item-data="searchItemData" />
+    <query-builder ref="BringQueryBuilder" :rules="rules" :allow-del-first="true" :search-item-data="searchItemData" :single-select="true" />
     <el-row>
       <el-button size="mini" plain @click="clickHandler_1()">开始搜索</el-button>
       <el-button size="mini" type="danger" @click="clickHandler_2()">重置</el-button>
